@@ -1,0 +1,4 @@
+
+login as username: joe without a password, and then go in the application aspect and change the admin to "True" and refresh
+
+picoCTF{th3_c0nsp1r4cy_l1v3s_4d184b0d}

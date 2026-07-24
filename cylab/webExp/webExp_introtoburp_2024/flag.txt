@@ -1,0 +1,6 @@
+IjQzN2VkMzE0ZDQ3MTY3NTAzY2ZlNTk3NzU2NGQ0ZDNhZjY0YWVjYWIi.alSkPg.pClHOENkWZv5a7v4UXrllFo1vFU
+
+use the burp suit to intercept the /dashboard which transmit the otp, and remove it in the 
+request body params and forward
+
+=> picoCTF{#0TP_Bypvss_SuCc3$S_e1eb16ed}

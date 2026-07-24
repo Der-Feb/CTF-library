@@ -1,0 +1,6 @@
+
+look at the link which send you to swagger docs, download the heapdump file from the 
+execution of endpoint GET /headdump, and run this
+grep -o "picoCTF{[^}]*}" heapdump-1783934433181.heapsnapshot > result.txt
+
+=> picoCTF{Pat!3nt_15_Th3_K3y_dc0756a3}

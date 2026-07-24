@@ -1,0 +1,60 @@
+```
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_gbd-test-drive_2022]
+└─$ strings gbdme | >> file.txt
+strings: 'gbdme': No such file
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_gbd-test-drive_2022]
+└─$ strings gdbme | >> file.txt
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_gbd-test-drive_2022]
+└─$ lldb gdbme         
+(lldb) target create "gdbme"
+Current executable set to '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_gbd-test-drive_2022/gdbme' (x86_64).
+(lldb) run
+Process 286346 launched: '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_gbd-test-drive_2022/gdbme' (x86_64)
+   
+Process 286346 stopped
+* thread #1, name = 'gdbme', stop reason = signal SIGSTOP
+    frame #0: 0x00007ffff7e377d2 libc.so.6`___lldb_unnamed_symbol_92750 + 130
+libc.so.6`___lldb_unnamed_symbol_92750:
+->  0x7ffff7e377d2 <+130>: addq   $0x18, %rsp
+    0x7ffff7e377d6 <+134>: retq   
+    0x7ffff7e377d7 <+135>: nopw   (%rax,%rax)
+
+libc.so.6`___lldb_unnamed_symbol_927e0:
+    0x7ffff7e377e0 <+0>:   subq   $0x10, %rsp
+(lldb) x/s $rbp-0x30
+0x7fffffffd350: "A:4@r%uL5b3F88bC05C`Gb0fffe5fdgN"
+(lldb) x/s 0x7fffffffd350
+0x7fffffffd350: "A:4@r%uL5b3F88bC05C`Gb0fffe5fdgN"
+(lldb) breakpoint set --name main
+Breakpoint 1: where = gdbme`main, address = 0x00005555555552c7
+(lldb) run
+There is a running process, kill it and restart?: [Y/n] y
+Process 286346 exited with status = 9 (0x00000009) killed
+Process 291934 launched: '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_gbd-test-drive_2022/gdbme' (x86_64)
+Process 291934 stopped
+* thread #1, name = 'gdbme', stop reason = breakpoint 1.1
+    frame #0: 0x00005555555552c7 gdbme`main
+gdbme`main:
+->  0x5555555552c7 <+0>: endbr64 
+    0x5555555552cb <+4>: pushq  %rbp
+    0x5555555552cc <+5>: movq   %rsp, %rbp
+    0x5555555552cf <+8>: subq   $0x50, %rsp
+(lldb) continue
+Process 291934 resuming
+Process 291934 stopped
+* thread #1, name = 'gdbme', stop reason = signal SIGSTOP
+    frame #0: 0x00007ffff7e377d2 libc.so.6`___lldb_unnamed_symbol_92750 + 130
+libc.so.6`___lldb_unnamed_symbol_92750:
+->  0x7ffff7e377d2 <+130>: addq   $0x18, %rsp
+    0x7ffff7e377d6 <+134>: retq   
+    0x7ffff7e377d7 <+135>: nopw   (%rax,%rax)
+
+libc.so.6`___lldb_unnamed_symbol_927e0:
+    0x7ffff7e377e0 <+0>:   subq   $0x10, %rsp
+(lldb) 
+```
+
+getting the string at the $rbp-0x30, then use the python version of rotate_encrypt (from disassemble) to 
+get the flag

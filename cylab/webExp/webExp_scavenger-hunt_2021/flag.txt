@@ -1,0 +1,7 @@
+part 1: "picoCTF{t" from the markup
+part 2: "h4ts_4_l0" from the styling file
+part 3: "t_0f_pl4c" from the /robots
+part 4: "3s_2_lO0k" from the /.htacces
+part 5: "_9588550}" from the /.DT_store
+
+=> picoCTF{th4ts_4_l0t_0f_pl4c3s_2_lO0k_9588550}

@@ -1,0 +1,5 @@
+
+# using GBD debugger
+
+using commands given in the challenge as they are, also: 
+(Intro to Debugging w/ GDB (PicoCTF 2022 #11 'gdb-test-drive'))[https://www.youtube.com/watch?v=Tmdnsre9z7s&list=PL1H1sBF1VAKUp9mElvX079qK3UNI2b3ek&index=3]

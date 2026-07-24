@@ -1,0 +1,5 @@
+
+login with any credentials, and go to the login.php, inspect the page, and go to secure.js
+you will see the real credentials to use back one "/"
+
+=> picoCTF{j5_15_7r4n5p4r3n7_05df90c8}

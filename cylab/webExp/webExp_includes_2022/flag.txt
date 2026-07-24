@@ -1,0 +1,2 @@
+picoCTF{1nclu51v17y_1of2_f7w_2of2_b8f4b022}
+The flag comes from the style.css and another part from script.js

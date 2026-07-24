@@ -1,0 +1,68 @@
+
+Use this commands from the gdb, after getting the hash, use it in the netcat program
+
+```
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_secure-password-database_2026]
+└─$ gdb ./system.out
+GNU gdb (Debian 17.2-1+b1) 17.2
+Copyright (C) 2025 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./system.out...
+(No debugging symbols found in ./system.out)
+(gdb) break make_secret
+Breakpoint 1 at 0x136a
+(gdb) run
+Starting program: /home/derfeb/Desktop/CTF/cylab/reverse/reverse_secure-password-database_2026/system.out 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+Please set a password for your account:
+12345678
+How many bytes in length is your password?
+8
+You entered: 8
+Your successfully stored password:
+49 50 51 52 53 54 55 56 10 
+Enter your hash to access your account!
+0
+
+Breakpoint 1, 0x000055555555536a in make_secret ()
+(gdb) finish
+Run till exit from #0  0x000055555555536a in make_secret ()
+0x0000555555555677 in main ()
+(gdb) 12345678
+❌️ Undefined command: "12345678".  Try "help".
+(gdb) print /u $rax
+$1 = 15237662580160011234
+(gdb) 
+
+
+
+                                                                                                                                                                                     
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_secure-password-database_2026]
+└─$ nc candy-mountain.picoctf.net 55399
+Please set a password for your account:
+12345678
+How many bytes in length is your password?
+8
+You entered: 8
+Your successfully stored password:
+49 50 51 52 53 54 55 56 10 
+Enter your hash to access your account!
+15237662580160011234
+picoCTF{d0nt_trust_us3rs}
+                                                                                                                                                                                     
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_secure-password-database_2026]
+└─$ 
+```

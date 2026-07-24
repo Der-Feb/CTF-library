@@ -1,0 +1,3 @@
+curl -I http://wily-courier.picoctf.net:54048/
+
+In the headers you will find the flag, (use the url which is provided in the instance created)

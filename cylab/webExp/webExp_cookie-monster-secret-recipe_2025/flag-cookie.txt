@@ -1,0 +1,7 @@
+login and look in the cookies application
+the cookie is encoded in base64 you can use: 
+
+echo "cGljb0NURntjMDBrMWVfbTBuc3Rlcl9sMHZlc19jMDBraWVzXzJDODA0MEVGfQ%3D%3D" | base64 -d
+replace with your cookie value
+
+=> picoCTF{c00k1e_m0nster_l0ves_c00kies_2C8040EF}

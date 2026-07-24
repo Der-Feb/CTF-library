@@ -1,0 +1,5 @@
+
+copy code, go to the inspector type "allow pasting" and enter
+paste the codes
+
+=> picoCTF{p@g3_turn3r_18d2fa20}

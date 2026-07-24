@@ -1,0 +1,36 @@
+Run the netcat file
+put the values in the decrypt.py and the answer to get the flag
+
+┌──(derfeb㉿kali)-[~/Desktop/CTF/cylab/reverse_hidden-cipher-2_2026]
+└─$ nc crystal-peak.picoctf.net 55927
+What is 8 + 2? 10
+Encoded flag values:
+1120, 1050, 990, 1110, 670, 840, 700, 1230, 1090, 520, 1160, 1040, 950, 980, 510, 1040, 490, 1100, 1000, 950, 990, 490, 1120, 1040, 510, 1140, 950, 480, 490, 490, 510, 530, 980, 1010, 530, 1250
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/Desktop/CTF/cylab/reverse_hidden-cipher-2_2026]
+└─$ python3 decrypt.py                 
+
+    =============================================
+    HOW TO USE:
+    1. Run the program: ./hiddencipher2
+    2. Solve the math question (e.g., 4 + 5 = 9)
+    3. Copy the encoded values it prints
+    4. Paste them here
+    5. Enter your math answer
+    6. Get the flag!
+    =============================================
+    
+Enter the encoded values (comma-separated):
+Example: 1008, 945, 891, 999, 603, 756, 630
+> 1120, 1050, 990, 1110, 670, 840, 700, 1230, 1090, 520, 1160, 1040, 950, 980, 510, 1040, 490, 1100, 1000, 950, 990, 490, 1120, 1040, 510, 1140, 950, 480, 490, 490, 510, 530, 980, 1010, 530, 1250
+
+Enter the answer from the math question:
+Example: 9
+> 10
+
+--------------------------------------------------
+FLAG: picoCTF{m4th_b3h1nd_c1ph3r_01135be5}
+--------------------------------------------------
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/Desktop/CTF/cylab/reverse_hidden-cipher-2_2026]
+└─$ 

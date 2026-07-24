@@ -1,0 +1,14 @@
+=> HTB{C0SM1C-BYP4SS}
+
+Exactly as predicted: Go's case-insensitive struct field matching let 
+`"ACTION": "getcosmic"` silently override the earlier `"action": "getSecureCode"` when populating `requestData.Action`, 
+so the switch took the `getcosmic` branch and forwarded the *entire raw body* — including the 
+still-present lowercase `"action": "getSecureCode"` key — to Flask untouched. Flask's strictly case-sensitive dict lookup then 
+read that original lowercase key and handed back the flag.
+
+The root cause in one line: **the Go proxy authorizes based on one interpretation of the JSON, but forwards the raw bytes for a 
+completely different service to reinterpret** — any place two parsers can disagree on the meaning of the same bytes 
+(case folding, duplicate keys, encoding, whitespace) is a potential authorization bypass whenever that gap exists between 
+a decision point and an enforcement point. Good find.
+
+Python service was the backend and Go app is for frontend

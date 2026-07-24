@@ -1,0 +1,52 @@
+
+The vulnerability is that the program is keeping the password in the memory and
+compare it to what you have, we must access that password string
+
+```
+(lldb) b decode_password
+Breakpoint 1: where = bypassme.bin`decode_password(char*) + 31 at bypassme.c:17:19, address = 0x0000000000001352
+(lldb) run
+Process 54 launched: '/home/ctf-player/bypassme.bin' (x86_64)
+Process 54 stopped
+* thread #1, name = 'bypassme.bin', stop reason = breakpoint 1.1
+    frame #0: 0x000055983c7c7352 bypassme.bin`decode_password(out="\xa8\xb1M\xbd�) at bypassme.c:17:19
+(lldb) finish
+Process 54 stopped
+* thread #1, name = 'bypassme.bin', stop reason = step out
+
+    frame #0: 0x000055983c7c7665 bypassme.bin`main at bypassme.c:80:19
+(lldb) expr (char *)($rbp - 0x110)
+(char *) $0 = 0x00007ffcbd4db1a0 "SuperSecure"
+(lldb) ^C
+(lldb) exit
+Quitting LLDB will kill one or more processes. Do you really want to proceed: [Y/n] y
+ctf-player@pico-chall$ ./bypassme.bin
+
+
+
+          ███████╗███████╗ ██████╗██╗   ██╗██████╗ ███████╗    ██████╗  ██████╗ ██████╗ ████████╗ █████╗ ██╗     
+          ██╔════╝██╔════╝██╔════╝██║   ██║██╔══██╗██╔════╝    ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔══██╗██║     
+          ███████╗█████╗  ██║     ██║   ██║██████╔╝█████╗      ██████╔╝██║   ██║██████╔╝   ██║   ███████║██║     
+          ╚════██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝      ██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══██║██║     
+          ███████║███████╗╚██████╗╚██████╔╝██║  ██║███████╗    ██║     ╚██████╔╝██║  ██║   ██║   ██║  ██║███████╗
+          ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝
+
+ Initializing secure modules...
+ Running memory diagnostics...
+ All systems online...
+
+ Access to this terminal is restricted.
+ Please authenticate below.
+----------------------------------------
+
+
+[3 tries left] Enter password: SuperSecure
+
+Raw Input:      [SuperSecure]
+Sanitized Input:[SuperSecure]
+Hint: Input must match something special...
+
+Authenticating...
+🎉 Flag: picoCTF{d3bugg3r_p0w3r_is_4w3s0m3_9df7c6a6}
+ctf-player@pico-chall$ 
+```

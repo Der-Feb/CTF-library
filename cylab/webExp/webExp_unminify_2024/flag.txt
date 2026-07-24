@@ -1,0 +1,4 @@
+
+after unminifying look at div with class "picoCTF{pr3tty_c0d3_b99eb82e}"
+
+=> picoCTF{pr3tty_c0d3_b99eb82e}

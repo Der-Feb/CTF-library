@@ -1,0 +1,6 @@
+
+Use the strings command to find the readable strings, in the file, you will find a suspicious file
+s3cr3t_p455_f0r_gh05t5_4nd_gh0ul5
+
+use it to as pass secret to in the pass execution
+HTB{un0bfu5c4t3d_5tr1ng5}

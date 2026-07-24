@@ -1,0 +1,5 @@
+go to the /robots.txt
+they will give you the /....html
+and go to that route, you willl find the flag
+
+=> picoCTF{ca1cu1at1ng_Mach1n3s_cc6b1}

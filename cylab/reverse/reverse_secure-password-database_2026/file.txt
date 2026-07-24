@@ -1,0 +1,123 @@
+system.out: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=63224e5a94fa31cb071c82105d8a70ffc806ac0b, for GNU/Linux 3.2.0, not stripped
+
+/lib64/ld-linux-x86-64.so.2
+c"NZ
+mgUa
+fgets
+strcpy
+stdin
+puts
+perror
+__stack_chk_fail
+free
+__assert_fail
+putchar
+fopen
+strlen
+atoi
+__libc_start_main
+__cxa_finalize
+calloc
+fclose
+printf
+strtoul
+libc.so.6
+GLIBC_2.4
+GLIBC_2.34
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+PTE1
+u+UH
+Please set a password for your account:
+How many bytes in length is your password?
+You entered: %d
+Your successfully stored password:
+Enter your hash to access your account!
+No digits were found
+heartbleed.c
+1 == 0
+flag.txt
+Could not open flag.txt
+Failed to read the flag
+main
+9*3$"
+GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Scrt1.o
+__abi_tag
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+heartbleed.c
+obf_bytes
+__PRETTY_FUNCTION__.0
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+free@GLIBC_2.2.5
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+_ITM_deregisterTMCloneTable
+strcpy@GLIBC_2.2.5
+puts@GLIBC_2.2.5
+stdin@GLIBC_2.2.5
+_edata
+fclose@GLIBC_2.2.5
+_fini
+strlen@GLIBC_2.2.5
+__stack_chk_fail@GLIBC_2.4
+hash
+printf@GLIBC_2.2.5
+__assert_fail@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+calloc@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+make_secret
+_end
+__bss_start
+main
+fopen@GLIBC_2.2.5
+perror@GLIBC_2.2.5
+strtoul@GLIBC_2.2.5
+atoi@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+__cxa_finalize@GLIBC_2.2.5
+_init
+.symtab
+.strtab
+.shstrtab
+.interp
+.note.gnu.property
+.note.gnu.build-id
+.note.ABI-tag
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.plt.sec
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.init_array
+.fini_array
+.dynamic
+.data
+.bss
+.comment

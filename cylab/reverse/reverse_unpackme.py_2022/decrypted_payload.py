@@ -1,0 +1,8 @@
+
+pw = input('What\'s the password? ')
+
+if pw == 'batteryhorse':
+  print('picoCTF{175_chr157m45_85f5d0ac}')
+else:
+  print('That password is incorrect.')
+

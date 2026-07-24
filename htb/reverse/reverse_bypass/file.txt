@@ -1,0 +1,122 @@
+bypass.exe: PE32 executable for MS Windows 4.00 (console), Intel i386 Mono/.Net assembly, 3 sections
+
+!This program cannot be run in DOS mode.
+.text
+`.rsrc
+@.reloc
+t`#0;
+I9o:f
+l>NU\Y7h
+Yg!qm
+5SEu
+Z|\0$
+GzdQmk
+tC{2ma
+iSw-c
+EEh>S
+< ox
+2+E$+
+34; n\
+iO77
+DTuG
+t0pI
+PK;a
+1ElE-
+!#Et^'5
+)*L8j
+!Ke]
+vwr sG`=
+BSJB
+v4.0.30319
+#Strings
+#GUID
+#Blob
+ReadInt32
+ReadInt64
+<Module>
+System.IO
+get_IV
+GenerateIV
+mscorlib
+Read
+RijndaelManaged
+set_Mode
+CryptoStreamMode
+CipherMode
+get_Unicode
+HTBChallange
+IDisposable
+ReadDouble
+ReadSingle
+Console
+ReadLine
+WriteLine
+Dispose
+Write
+GuidAttribute
+AttributeUsageAttribute
+ComVisibleAttribute
+AssemblyTitleAttribute
+AssemblyTrademarkAttribute
+TargetFrameworkAttribute
+AssemblyFileVersionAttribute
+AssemblyConfigurationAttribute
+AssemblyDescriptionAttribute
+CompilationRelaxationsAttribute
+AssemblyProductAttribute
+AssemblyCopyrightAttribute
+AssemblyCompanyAttribute
+RuntimeCompatibilityAttribute
+ReadSByte
+HTBChallange.exe
+set_BlockSize
+Encoding
+System.Runtime.Versioning
+ReadString
+get_Length
+GetManifestResourceStream
+CryptoStream
+MemoryStream
+System
+SymmetricAlgorithm
+ICryptoTransform
+System.Reflection
+get_Position
+BinaryReader
+.ctor
+.cctor
+CreateDecryptor
+System.Runtime.InteropServices
+System.Runtime.CompilerServices
+AttributeTargets
+Concat
+Object
+System.Text
+get_Key
+GenerateKey
+System.Security.Cryptography
+GetExecutingAssembly
+op_Equality
+BjKsU5
+1.0.0.0
+$5089226f-12b6-4050-9ce3-f7c43721a5a2
+WrapNonExceptionThrows
+HTBChallange
+.NETFramework,Version=v4.5.2
+FrameworkDisplayName
+.NET Framework 4.5.2
+Copyright 
+  2019
+_CorExeMain
+mscoree.dll
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <assemblyIdentity version="1.0.0.0" name="MyApplication.app"/>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+</assembly>

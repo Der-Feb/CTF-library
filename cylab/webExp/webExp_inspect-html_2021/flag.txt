@@ -1,0 +1,2 @@
+
+Just inspect the page, you will find the flag

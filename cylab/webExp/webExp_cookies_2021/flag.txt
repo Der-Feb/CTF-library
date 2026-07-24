@@ -1,0 +1,3 @@
+picoCTF{3v3ry1_l0v3s_c00k135_a4dadb49}
+
+Keep changing the name's value in the cookie application inspection tab, or use the test.py to get the cookie at the 18th index

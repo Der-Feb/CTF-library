@@ -1,0 +1,47 @@
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ ls   
+unpackme.flag.py
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ file unpackme.flag.py                                                 
+unpackme.flag.py: Python script, ASCII text executable, with very long lines (305)
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ ls -al
+total 12
+drwxrwxr-x  2 derfeb derfeb 4096 Jul 21 11:22 .
+drwxrwxr-x 14 derfeb derfeb 4096 Jul 21 11:22 ..
+-rw-rw-r--  1 derfeb derfeb  527 Jul 21 11:22 unpackme.flag.py
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ python3 unpackme.flag.py
+What's the password? derick
+That password is incorrect.
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ strings unpackme.flag.py                    
+import base64
+from cryptography.fernet import Fernet
+payload = b'gAAAAABkzWGWvEp8gLI9AcIn5o-ahDUwkTvM6EwF7YYMZlE-_Gf9rcNYjxIgX4b0ltY6bcxKarib2ds6POclRwCwhsRb1LOXVt4Q3ePtMY4BmHFFZlIHLk05CjwigT7hiI9p3sH9e7Cpk1uO90xbHbuy-mfi3nkmn411aBgwxyWpJvykpkuBIG_nty6zbox3UhbB85TOis0TgM0zG4ht0-GUW4wTq2_5-wkw3kV1ZAisLJHzF-Z9oLMmwFZU0UCAcHaBTGDF5BnVLmUeCGTgzVLSNn6BmB61Yg=='
+key_str = 'correctstaplecorrectstaplecorrec'
+key_base64 = base64.b64encode(key_str.encode())
+f = Fernet(key_base64)
+plain = f.decrypt(payload)
+exec(plain.decode())
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ python3 decrypt.py      
+Decrypted payload saved to decrypted_payload.py
+
+pw = input('What\'s the password? ')
+
+if pw == 'batteryhorse':
+  print('picoCTF{175_chr157m45_85f5d0ac}')
+else:
+  print('That password is incorrect.')
+
+
+                                                                                                                                                                              
+┌──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme.py_2022]
+└─$ 

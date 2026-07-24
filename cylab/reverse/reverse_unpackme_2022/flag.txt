@@ -1,0 +1,142 @@
+## Steps to Get the Flag
+
+1. **Unpack the UPX binary:**
+```bash
+upx -d --force unpackme-upx
+```
+
+2. **Find the correct number using disassembly:**
+```bash
+objdump -d unpackme-upx | grep -A5 -B5 "cmp"
+```
+→ Found `cmp $0xb83cb, %eax` meaning the number is `0xb83cb` = **754635** in decimal
+
+3. **Run the binary with the correct number:**
+```bash
+./unpackme-upx
+```
+Enter `754635` when prompted
+
+4. **The flag is printed!** 🚩
+
+
+Use the lldb to find the number, there are comparing the input to the number
+at a specific address, you need to read it
+
+--
+
+```
+──(derfeb㉿kali)-[~/…/CTF/cylab/reverse/reverse_unpackme_2022]
+└─$ lldb ./unpackme-upx                   
+(lldb) target create "./unpackme-upx"
+Current executable set to '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_unpackme_2022/unpackme-upx' (x86_64).
+(lldb) run
+Process 253114 launched: '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_unpackme_2022/unpackme-upx' (x86_64)
+What's my favorite number? 49
+Sorry, that's not it!
+Process 253114 exited with status = 0 (0x00000000) 
+(lldb) breakpoint set --name main
+Breakpoint 1: where = unpackme-upx`main, address = 0x0000000000401e43
+(lldb) run
+Process 254911 launched: '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_unpackme_2022/unpackme-upx' (x86_64)
+Process 254911 stopped
+* thread #1, name = 'unpackme-upx', stop reason = breakpoint 1.1
+    frame #0: 0x0000000000401e43 unpackme-upx`main
+unpackme-upx`main:
+->  0x401e43 <+0>: endbr64 
+    0x401e47 <+4>: pushq  %rbp
+    0x401e48 <+5>: movq   %rsp, %rbp
+    0x401e4b <+8>: subq   $0x50, %rsp
+(lldb) disassamble
+error: 'disassamble' is not a valid command.
+(lldb) disassemble
+unpackme-upx`main:
+->  0x401e43 <+0>:   endbr64 
+    0x401e47 <+4>:   pushq  %rbp
+    0x401e48 <+5>:   movq   %rsp, %rbp
+    0x401e4b <+8>:   subq   $0x50, %rsp
+    0x401e4f <+12>:  movl   %edi, -0x44(%rbp)
+    0x401e52 <+15>:  movq   %rsi, -0x50(%rbp)
+    0x401e56 <+19>:  movq   %fs:0x28, %rax
+    0x401e5f <+28>:  movq   %rax, -0x8(%rbp)
+    0x401e63 <+32>:  xorl   %eax, %eax
+    0x401e65 <+34>:  movabsq $0x4c75257240343a41, %rax ; imm = 0x4C75257240343A41 
+    0x401e6f <+44>:  movabsq $0x30623e306b6d4146, %rdx ; imm = 0x30623E306B6D4146 
+    0x401e79 <+54>:  movq   %rax, -0x30(%rbp)
+    0x401e7d <+58>:  movq   %rdx, -0x28(%rbp)
+    0x401e81 <+62>:  movabsq $0x6865666430486637, %rax ; imm = 0x6865666430486637 
+    0x401e8b <+72>:  movq   %rax, -0x20(%rbp)
+    0x401e8f <+76>:  movl   $0x36636433, -0x18(%rbp) ; imm = 0x36636433 
+    0x401e96 <+83>:  movw   $0x4e, -0x14(%rbp)
+    0x401e9c <+89>:  leaq   0xb1161(%rip), %rdi ;  + 4
+    0x401ea3 <+96>:  movl   $0x0, %eax
+    0x401ea8 <+101>: callq  0x410ba0       ; __printf
+    0x401ead <+106>: leaq   -0x3c(%rbp), %rax
+    0x401eb1 <+110>: movq   %rax, %rsi
+    0x401eb4 <+113>: leaq   0xb1165(%rip), %rdi ;  + 32
+    0x401ebb <+120>: movl   $0x0, %eax
+    0x401ec0 <+125>: callq  0x410d30       ; __isoc99_scanf
+    0x401ec5 <+130>: movl   -0x3c(%rbp), %eax
+    0x401ec8 <+133>: cmpl   $0xb83cb, %eax ; imm = 0xB83CB 
+    0x401ecd <+138>: jne    0x401f12       ; <+207>
+    0x401ecf <+140>: leaq   -0x30(%rbp), %rax
+    0x401ed3 <+144>: movq   %rax, %rsi
+    0x401ed6 <+147>: movl   $0x0, %edi
+    0x401edb <+152>: callq  0x401d85       ; rotate_encrypt
+    0x401ee0 <+157>: movq   %rax, -0x38(%rbp)
+    0x401ee4 <+161>: movq   0xdd7e5(%rip), %rdx ; stdout
+    0x401eeb <+168>: movq   -0x38(%rbp), %rax
+    0x401eef <+172>: movq   %rdx, %rsi
+    0x401ef2 <+175>: movq   %rax, %rdi
+    0x401ef5 <+178>: callq  0x420980       ; _IO_fputs
+    0x401efa <+183>: movl   $0xa, %edi
+    0x401eff <+188>: callq  0x420e20       ; putchar
+    0x401f04 <+193>: movq   -0x38(%rbp), %rax
+    0x401f08 <+197>: movq   %rax, %rdi
+    0x401f0b <+200>: callq  0x42ec70       ; __free
+    0x401f10 <+205>: jmp    0x401f1e       ; <+219>
+    0x401f12 <+207>: leaq   0xb110a(%rip), %rdi ;  + 35
+    0x401f19 <+214>: callq  0x420c40       ; _IO_puts
+    0x401f1e <+219>: movl   $0x0, %eax
+    0x401f23 <+224>: movq   -0x8(%rbp), %rcx
+    0x401f27 <+228>: xorq   %fs:0x28, %rcx
+    0x401f30 <+237>: je     0x401f37       ; <+244>
+    0x401f32 <+239>: callq  0x45cba0       ; __stack_chk_fail_local
+    0x401f37 <+244>: leave  
+    0x401f38 <+245>: retq   
+(lldb) continue
+Process 254911 resuming
+What's my favorite number? 4
+Sorry, that's not it!
+Process 254911 exited with status = 0 (0x00000000) 
+(lldb) breakpoint set --address 0x401ee0
+Breakpoint 2: where = unpackme-upx`main + 157, address = 0x0000000000401ee0
+(lldb) run
+Process 256817 launched: '/home/derfeb/Desktop/CTF/cylab/reverse/reverse_unpackme_2022/unpackme-upx' (x86_64)
+Process 256817 stopped
+* thread #1, name = 'unpackme-upx', stop reason = breakpoint 1.1
+    frame #0: 0x0000000000401e43 unpackme-upx`main
+unpackme-upx`main:
+->  0x401e43 <+0>: endbr64 
+    0x401e47 <+4>: pushq  %rbp
+    0x401e48 <+5>: movq   %rsp, %rbp
+    0x401e4b <+8>: subq   $0x50, %rsp
+(lldb) 
+error: No auto repeat.
+(lldb) continue
+Process 256817 resuming
+What's my favorite number? 754635
+Process 256817 stopped
+* thread #1, name = 'unpackme-upx', stop reason = breakpoint 2.1
+    frame #0: 0x0000000000401ee0 unpackme-upx`main + 157
+unpackme-upx`main:
+->  0x401ee0 <+157>: movq   %rax, -0x38(%rbp)
+    0x401ee4 <+161>: movq   0xdd7e5(%rip), %rdx ; stdout
+    0x401eeb <+168>: movq   -0x38(%rbp), %rax
+    0x401eef <+172>: movq   %rdx, %rsi
+(lldb) register read rax
+     rax = 0x00000000004e53c0
+(lldb) x/s $rax
+0x004e53c0: "picoCTF{up><_m3_f7w_5769b54e}"
+(lldb) 
+```

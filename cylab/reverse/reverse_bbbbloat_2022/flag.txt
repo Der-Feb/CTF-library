@@ -1,0 +1,3 @@
+They are comparing 549255 which is 0x86187 from ghidra, when it is true, they generate the flag
+
+picoCTF{cu7_7h3_bl047_36dd316a}

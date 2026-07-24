@@ -1,0 +1,11 @@
+The binary encrypt the string in the flag.txt file, find the encrypted string
+run in the decipher.py to the get flag
+
+Encryption method: xor with key: "s3Cr3t"
+
+```
+┌──(derfeb㉿kali)-[~/Desktop/CTF/cylab/reverse_hidden-cipher-1_2026]
+└─$ python3 decipher.py
+Enter the encrypted hex: 235a201d702015483b1d412b265d3313501f0c072d135f0d2002302d57426752731306472e
+flag: picoCTF{xor_unpack_4nalys1s_d64a0a53}
+```

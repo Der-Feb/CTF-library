@@ -1,0 +1,10 @@
+Run: 
+
+┌──(derfeb㉿kali)-[~/…/CTF/htb/webExp/webExp_flag-command_2024]
+└─$ curl -X POST http://154.57.164.77:32117/api/monitor \
+  -H "Content-Type: application/json" \
+  -d '{"command": "Blip-blop, in a pickle with a hiccup! Shmiggity-shmack"}'
+
+{
+  "message": "HTB{D3v3l0p3r_t00l5_4r3_b35t__t0015_wh4t_d0_y0u_Th1nk??}"
+}
