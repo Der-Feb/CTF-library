@@ -1,5 +1,7 @@
-
 # modules
 venv/
 node_modules/
 __pycache__/
+
+# strictly ignore zips inside the htb folder only
+/htb/**/*.zip
