@@ -1,0 +1,9 @@
+picoCTF{f4k3_t3st1n9_fl49}
+
+In the binary there are injecting a string on every part of the flag
+
+}3f3ftc_oc_ip1ac6ftc_oc_ip4_99ftc_oc_ip9_TGftc_oc_ip_xehftc_oc_ip_tigftc_oc_ipid_3ftc_oc_ip{FTCftc_oc_ipocipftc_oc_ip
+
+=> }3f31ac64_999_TG_xeh_tigid_3{FTCocip
+
+Then reverse the string
