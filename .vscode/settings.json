@@ -1,11 +1,24 @@
 {
-    "java.languageServer.mode": "lightWeight",
-    "java.diagnostics.enabled": false,
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "java.project.resourceFilters": [
+  "java.languageServer.mode": "lightWeight",
+  "java.diagnostics.enabled": false,
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "java.project.resourceFilters": [
+    {
+      "node": "minions_source",
+      "children": [
         {
-            "node": "minions_source",
-            "children": [{ "node": "**" }]
+          "node": "**"
         }
-    ]
+      ]
+    }
+  ],
+  "task.allowAutomaticTasks": true,
+  "debug.openDebug": "neverOpen",
+  "terminal.integrated.inheritEnv": false,
+  "tasks": {
+    "label": "lint on open",
+    "type": "shell",
+    "command": "npm run lint",
+    "runOn": "folderOpen"
+  }
 }
